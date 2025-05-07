@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Splash Zones & Spreadsheets</title>
+
+  <!-- Load Vega/Altair libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      max-width: 800px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.25em;
+    }
+    h2 {
+      margin-top: 2em;
+    }
+    .chart {
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Splash Zones & Spreadsheets: A Deep Dive into Illinois’ Swimming Facility Contractors</h1>
+  <p><em>By Erin Thomason</em></p>
+
+  <p>
+    Have you ever wondered who’s responsible for building and maintaining the swimming pools we use every day? From public recreation centers to hotel spas, contractors must be officially pre-qualified by the state of Illinois before they can work on these facilities. This project explores a dataset of those approved contractors to get a better idea of who’s doing the work — and where.
+  </p>
+
+  <p>
+    The interactive chart below breaks down contractors by type and shows how their prequalification statuses vary. You can select a contractor type using the dropdown, and the chart will update to show how many of those contractors are fully approved, temporarily approved, or inactive. This makes it easy to explore how different parts of the state’s contractor network are structured.
+  </p>
+
+  <p>
+    One of the biggest takeaways from this dataset is how uneven the distribution of contractors is. Urban areas like Chicago have significantly more activity, while smaller towns often only have one or two approved vendors — if any. This imbalance could impact the speed and quality of pool construction and maintenance across the state, especially in rural communities.
+  </p>
+
+  <h2>Main Interactive Visualization</h2>
+  <div id="vis" class="chart"></div>
+
+  <script type="text/javascript">
+    var spec = "/assets/contractor_chart.json";  // Make sure this matches your file path
+    vegaEmbed('#vis', spec).catch(console.error);
+  </script>
+
+  <h2>Contextual Visualizations</h2>
+
+  <h3>1. Distribution of Facility Types</h3>
+  <img src="/assets/facility_type_chart.png" alt="Facility Type Chart" width="600">
+  <p><em>Source: Illinois Department of Public Health (2024). <a href="https://www.dph.illinois.gov">View Dataset</a></em></p>
+
+  <h3>2. Top 10 Cities with the Most Approved Contractors</h3>
+  <img src="/assets/top_cities_chart.png" alt="Top Cities Chart" width="600">
+  <p><em>Source: IDPH Public Swimming Contractors Registry (2024).</em></p>
+
+  <h2>Data + Notebook</h2>
+  <ul>
+    <li><a href="/data/contractors.csv">Download contractors.csv</a> (local copy)</li>
+    <li><a href="https://github.com/yourusername/yourrepo/blob/main/notebook.ipynb">View Python notebook on GitHub</a></li>
+    <li>Original dataset from the <a href="https://www.dph.illinois.gov">Illinois Department of Public Health</a></li>
+  </ul>
+</body>
+</html>
